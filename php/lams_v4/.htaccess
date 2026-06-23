@@ -1,0 +1,16 @@
+# set character encoding
+AddDefaultCharset utf-8
+php_value default_charset utf-8
+
+# read index.php first file 
+DirectoryIndex index.php
+
+# enable mod rewrite
+RewriteEngine on
+
+# show error page
+ErrorDocument 404 /lams/err404.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
